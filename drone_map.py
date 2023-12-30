@@ -1,12 +1,48 @@
 import tkinter
 from tkintermapview import TkinterMapView
+import phonenumbers
 root=tkinter.Tk()
 root.title("Drone map")
 
 root.geometry("800x800")
 root.resizable(False,False)
 
+label_num=tkinter.Entry(root)
+label_num.place(x=200,y=600)
+new_label=tkinter.Label(root)
+new_label.place(x=200,y=625)
+new_label1=tkinter.Label(root)
+new_label1.place(x=200,y=645)
 
+def get_num()
+    number=int(label_num.get())
+    key=''
+
+    from phonenumbers import geocoder
+    x=phonenumbers.parse(number, "CH")
+    print(geocoder.description_for_number(number,"en")
+
+
+    from opencage.geocoder import OpenCageGeocode
+    geocoder=OpenCageGeocode(key)
+    query=str(yourLocation) 
+    results=geocoder.geocode(query)
+    lat=results[0]['geometry']['lat']
+    lng=results[0]['geometry']['lng']
+    print(lat,lng)
+    label = " "
+    global label
+    label += lat
+    lab=eval(label)
+    new_label.config(text=lab)
+    reg = " "
+    global reg
+    reg += lng
+    lag=eval(reg)
+    new_label1.config(text=lab)
+    
+button_ph=tkinter.Button(root,command=get_num)
+button_ph.place(x=200,y=665)
 gmap_widget = TkinterMapView(root,width=600,height=800)
 gmap_widget.pack()
 
